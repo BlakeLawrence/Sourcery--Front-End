@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Navbar from "../Navbar";
+import Navbar from "../navbar";
 import Input from "../Input/Input";
 import Resources from "../Resources/Resources";
 
@@ -64,7 +64,7 @@ function App() {
     setOnLoad();
   }, []);
 
-  // for initials badge
+  // logic for initials badge
   const getInitials = function (name) {
     const fullName = name.split(" ");
     const initials = [];
