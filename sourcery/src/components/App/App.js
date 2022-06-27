@@ -26,11 +26,6 @@ function App() {
     );
   };
 
-  // Function - Deletes item from DB
-  const deleteItem = () => {
-    const newObj = { ...resource };
-  };
-
   // patch request used to update likes
   async function patchResources(input) {
     await fetch("http://localhost:5001/v1/resources", {
@@ -43,15 +38,34 @@ function App() {
     });
   }
 
-  // function to add a new resource to the backend
+  // Post function to add a new resource to the backend
   async function postResources(input) {
-    const res = await fetch("http://localhost:5001/v1/resources", {
+    const response = await fetch("http://localhost:5001/v1/resources", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(input),
     });
-    const data = await res.json();
+    const data = await response.json();
     return data;
+  }
+
+  // Delete Route
+  async function deleteResource(id) {
+    const response = await fetch(`http://localhost:5001/v1/resources/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(id),
+    });
+    const data = await response.json();
+    console.log(data);
+    return data;
+  }
+
+  //This function is used to delete a result from the ResultList
+  function handleDelete(id) {
+    const newDelete = resource.filter((resource) => resource.id !== id);
+    setResource(newDelete);
+    console.log(newDelete);
   }
 
   // used to get the resource table from the backend
@@ -112,7 +126,7 @@ function App() {
             resource={resource}
             getInitials={getInitials}
             onLikeClick={onLikeClick}
-            deleteItem={deleteItem}
+            deleteResource={deleteResource}
           />
         </div>
       </main>

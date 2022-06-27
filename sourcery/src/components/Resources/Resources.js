@@ -2,7 +2,7 @@ import React from "react";
 
 import ResourceItem from "../ResourceItem/ResourceItem";
 
-function Resources({ resource, getInitials, onLikeClick, deleteItem }) {
+function Resources({ resource, getInitials, onLikeClick }) {
   return (
     <section>
       {resource.map((resources, index) => {
@@ -14,7 +14,6 @@ function Resources({ resource, getInitials, onLikeClick, deleteItem }) {
               getInitials={getInitials}
               index={index}
               onLikeClick={onLikeClick}
-              deleteItem={deleteItem}
             />
           </article>
         );
