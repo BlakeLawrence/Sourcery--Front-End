@@ -7,11 +7,13 @@ import Resources from "../Resources/Resources";
 function App() {
   const [resource, setResource] = useState([]);
 
+  // function to add a new resource to resource array
+  // spreads resource and adds new resource
   const addResource = (newResource) => {
     setResource([...resource, newResource]);
   };
 
-  //updates db when like button clicked
+  //Function - updates db when like button clicked
   const onLikeClick = (text) => {
     const newObj = { ...text, likes: text.likes + 1 };
 
@@ -22,6 +24,11 @@ function App() {
         return obj;
       })
     );
+  };
+
+  // Function - Deletes item from DB
+  const deleteItem = () => {
+    const newObj = { ...resource };
   };
 
   // patch request used to update likes
@@ -105,6 +112,7 @@ function App() {
             resource={resource}
             getInitials={getInitials}
             onLikeClick={onLikeClick}
+            deleteItem={deleteItem}
           />
         </div>
       </main>

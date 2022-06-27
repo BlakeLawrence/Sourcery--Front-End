@@ -1,8 +1,9 @@
 import React from "react";
 import Likes from "../Likes";
+import Delete from "../Delete/Delete";
 import "./ResourceItem.css";
 
-function ResourceItem({ getInitials, obj, onLikeClick }) {
+function ResourceItem({ getInitials, obj, onLikeClick, deleteItem }) {
   return (
     <div className="resource-card">
       <div className="name">
@@ -28,6 +29,7 @@ function ResourceItem({ getInitials, obj, onLikeClick }) {
         <p> {obj.description.toLowerCase()}</p>
       </div>
       <Likes obj={obj} onLikeClick={onLikeClick} />
+      <Delete deleteItem={deleteItem} />
     </div>
   );
 }

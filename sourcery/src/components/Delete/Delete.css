@@ -1,0 +1,15 @@
+.delete-button {
+  position: relative;
+  top: 3.75em;
+  font-family: "Cabin", sans-serif;
+  font-weight: 700;
+  border-radius: 15px;
+  border: none;
+  background-color: #ff0000ea;
+  color: white;
+  padding: 0.5em;
+}
+
+.delete-button:hover {
+  background-color: #ff0000af;
+}
